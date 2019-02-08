@@ -1,22 +1,22 @@
-package ai.blip.httpintegration.models;
+package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Label implements Serializable {
+public class Header implements Serializable {
 
 	private String type;
 	private Value value;
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-	private final static long serialVersionUID = 4364383931646628478L;
+	private Map<String, String> additionalProperties = new HashMap<String, String>();
+	private final static long serialVersionUID = -8537719114270319136L;
 
 	/**
 	 * No args constructor for use in serialization
 	 * 
 	 */
-	public Label() {
+	public Header() {
 	}
 
 	/**
@@ -24,7 +24,7 @@ public class Label implements Serializable {
 	 * @param value
 	 * @param type
 	 */
-	public Label(String type, Value value) {
+	public Header(String type, Value value) {
 		super();
 		this.type = type;
 		this.value = value;
@@ -38,7 +38,7 @@ public class Label implements Serializable {
 		this.type = type;
 	}
 
-	public Label withType(String type) {
+	public Header withType(String type) {
 		this.type = type;
 		return this;
 	}
@@ -51,20 +51,20 @@ public class Label implements Serializable {
 		this.value = value;
 	}
 
-	public Label withValue(Value value) {
+	public Header withValue(Value value) {
 		this.value = value;
 		return this;
 	}
 
-	public Map<String, Object> getAdditionalProperties() {
+	public Map<String, String> getAdditionalProperties() {
 		return this.additionalProperties;
 	}
 
-	public void setAdditionalProperty(String name, Object value) {
+	public void setAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 	}
 
-	public Label withAdditionalProperty(String name, Object value) {
+	public Header withAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 		return this;
 	}

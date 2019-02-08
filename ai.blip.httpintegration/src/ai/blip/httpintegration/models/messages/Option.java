@@ -1,4 +1,4 @@
-package ai.blip.httpintegration.models;
+package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ public class Option implements Serializable {
 	private String previewText;
 	private Label label;
 	private Object value;
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = 434566339626702052L;
 
 
@@ -128,15 +128,15 @@ public class Option implements Serializable {
 		return this;
 	}
 
-	public Map<String, Object> getAdditionalProperties() {
+	public Map<String, String> getAdditionalProperties() {
 		return this.additionalProperties;
 	}
 
-	public void setAdditionalProperty(String name, Object value) {
+	public void setAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 	}
 
-	public Option withAdditionalProperty(String name, Object value) {
+	public Option withAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 		return this;
 	}

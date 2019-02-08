@@ -1,4 +1,4 @@
-package ai.blip.httpintegration.models;
+package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,18 +7,18 @@ import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Item implements Serializable {
+public class MessageItem implements Serializable {
 
 	private Header header;
 	private List<Option> options = new ArrayList<Option>();
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = -1708126047961356653L;
 
 	/**
 	 * No args constructor for use in serialization
 	 * 
 	 */
-	public Item() {
+	public MessageItem() {
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class Item implements Serializable {
 	 * @param id
 	 * @param options
 	 */
-	public Item(Header header, List<Option> options) {
+	public MessageItem(Header header, List<Option> options) {
 		super();
 		this.header = header;
 		this.options = options;
@@ -41,7 +41,7 @@ public class Item implements Serializable {
 		this.header = header;
 	}
 
-	public Item withHeader(Header header) {
+	public MessageItem withHeader(Header header) {
 		this.header = header;
 		return this;
 	}
@@ -54,20 +54,20 @@ public class Item implements Serializable {
 		this.options = options;
 	}
 
-	public Item withOptions(List<Option> options) {
+	public MessageItem withOptions(List<Option> options) {
 		this.options = options;
 		return this;
 	}
 
-	public Map<String, Object> getAdditionalProperties() {
+	public Map<String, String> getAdditionalProperties() {
 		return this.additionalProperties;
 	}
 
-	public void setAdditionalProperty(String name, Object value) {
+	public void setAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 	}
 
-	public Item withAdditionalProperty(String name, Object value) {
+	public MessageItem withAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 		return this;
 	}

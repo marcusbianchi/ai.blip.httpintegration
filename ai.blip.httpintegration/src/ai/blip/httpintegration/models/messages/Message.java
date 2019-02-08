@@ -1,19 +1,21 @@
-package ai.blip.httpintegration.models;
+package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
+
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import ai.blip.httpintegration.enums.MessageType;
 
 public class Message implements Serializable {
 
-	private String id;
+	private String id = UUID.randomUUID().toString();
 	private MessageType type;
 	private String to;
 	private Object content;
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = 875082919667906573L;
 
 	/**
@@ -140,15 +142,15 @@ public class Message implements Serializable {
 		return this;
 	}
 
-	public Map<String, Object> getAdditionalProperties() {
+	public Map<String, String> getAdditionalProperties() {
 		return this.additionalProperties;
 	}
 
-	public void setAdditionalProperty(String name, Object value) {
+	public void setAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 	}
 
-	public Message withAdditionalProperty(String name, Object value) {
+	public Message withAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 		return this;
 	}

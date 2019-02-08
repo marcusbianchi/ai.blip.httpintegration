@@ -1,5 +1,5 @@
 
-package ai.blip.httpintegration.models;
+package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -11,8 +11,8 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class CarrouselContent implements Serializable {
 
 	private String itemType;
-	private List<Item> items = new ArrayList<Item>();
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	private List<MessageItem> messageItems = new ArrayList<MessageItem>();
+	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = -2390936484221244103L;
 
 	/**
@@ -24,13 +24,13 @@ public class CarrouselContent implements Serializable {
 
 	/**
 	 * 
-	 * @param items
+	 * @param messageItems
 	 * @param itemType
 	 */
-	public CarrouselContent(String itemType, List<Item> items) {
+	public CarrouselContent(String itemType, List<MessageItem> messageItems) {
 		super();
 		this.itemType = itemType;
-		this.items = items;
+		this.messageItems = messageItems;
 	}
 
 	public String getItemType() {
@@ -46,35 +46,35 @@ public class CarrouselContent implements Serializable {
 		return this;
 	}
 
-	public List<Item> getItems() {
-		return items;
+	public List<MessageItem> getItems() {
+		return messageItems;
 	}
 
-	public void setItems(List<Item> items) {
-		this.items = items;
+	public void setItems(List<MessageItem> messageItems) {
+		this.messageItems = messageItems;
 	}
 
-	public CarrouselContent withItems(List<Item> items) {
-		this.items = items;
+	public CarrouselContent withItems(List<MessageItem> messageItems) {
+		this.messageItems = messageItems;
 		return this;
 	}
 
-	public Map<String, Object> getAdditionalProperties() {
+	public Map<String, String> getAdditionalProperties() {
 		return this.additionalProperties;
 	}
 
-	public void setAdditionalProperty(String name, Object value) {
+	public void setAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 	}
 
-	public CarrouselContent withAdditionalProperty(String name, Object value) {
+	public CarrouselContent withAdditionalProperty(String name, String value) {
 		this.additionalProperties.put(name, value);
 		return this;
 	}
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("itemType", itemType).append("items", items)
+		return new ToStringBuilder(this).append("itemType", itemType).append("items", messageItems)
 				.append("additionalProperties", additionalProperties).toString();
 	}
 
