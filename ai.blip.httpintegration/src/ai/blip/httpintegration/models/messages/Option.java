@@ -114,7 +114,7 @@ public class Option implements Serializable {
 		this.value = value;
 	}
 	
-	public void setValue(String value) {
+	public void setValueAsString(String value) {
 		this.value = value;
 	}
 
