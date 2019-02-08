@@ -1,7 +1,6 @@
 package ai.blip.httpintegration.models.messages;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -22,8 +21,10 @@ class SimpleMessageSerializationTest {
 		Path currentRelativePath = Paths.get("");
 		String s = currentRelativePath.toAbsolutePath().toString();
 		String content = new String(Files.readAllBytes(Paths.get(s + "\\tests\\Resources\\SimpleMessage.json")));
+		
 		Message message = new Message().withId("1").withTo("128271320123982@messenger.gw.msging.net")
 				.withType(MessageType.PLAINT_TEXT).withContent("Welcome to our service! How can I help you?");
+		
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(Include.NON_NULL);
 		mapper.setSerializationInclusion(Include.NON_EMPTY);
@@ -43,7 +44,8 @@ class SimpleMessageSerializationTest {
 		mapper.setSerializationInclusion(Include.NON_NULL);
 		mapper.setSerializationInclusion(Include.NON_EMPTY);
 		Message deserialazedMessage= mapper.readValue(content,Message.class);
-		System.out.println(deserialazedMessage);
+		
+		
 		assertTrue(deserialazedMessage.getId().equals(message.getId()));
 		assertTrue(deserialazedMessage.getTo().equals(message.getTo()));
 		assertTrue(deserialazedMessage.getContent().equals(message.getContent()));
