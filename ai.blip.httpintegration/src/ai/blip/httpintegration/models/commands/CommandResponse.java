@@ -7,39 +7,43 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 import ai.blip.httpintegration.enums.CommandType;
 
-public class Command implements Serializable {
+public class CommandResponse implements Serializable {
 
 	private String id;
+	private String from;
 	private String to;
 	private String method;
-	private String uri;
+	private String status;
 	private CommandType type;
-	private Resource resource;
+	private ReponseResource resource;
 	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-	private final static long serialVersionUID = 8095711414605888550L;
+	private final static long serialVersionUID = -887713427385553081L;
 
 	/**
 	 * No args constructor for use in serialization
 	 * 
 	 */
-	public Command() {
+	public CommandResponse() {
 	}
 
 	/**
 	 * 
 	 * @param to
 	 * @param id
+	 * @param status
 	 * @param resource
 	 * @param method
+	 * @param from
 	 * @param type
-	 * @param uri
 	 */
-	public Command(String id, String to, String method, String uri, CommandType type, Resource resource) {
+	public CommandResponse(String id, String from, String to, String method, String status, CommandType type,
+			ReponseResource resource) {
 		super();
 		this.id = id;
+		this.from = from;
 		this.to = to;
 		this.method = method;
-		this.uri = uri;
+		this.status = status;
 		this.type = type;
 		this.resource = resource;
 	}
@@ -52,8 +56,21 @@ public class Command implements Serializable {
 		this.id = id;
 	}
 
-	public Command withId(String id) {
+	public CommandResponse withId(String id) {
 		this.id = id;
+		return this;
+	}
+
+	public String getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
+	public CommandResponse withFrom(String from) {
+		this.from = from;
 		return this;
 	}
 
@@ -65,7 +82,7 @@ public class Command implements Serializable {
 		this.to = to;
 	}
 
-	public Command withTo(String to) {
+	public CommandResponse withTo(String to) {
 		this.to = to;
 		return this;
 	}
@@ -78,21 +95,21 @@ public class Command implements Serializable {
 		this.method = method;
 	}
 
-	public Command withMethod(String method) {
+	public CommandResponse withMethod(String method) {
 		this.method = method;
 		return this;
 	}
 
-	public String getUri() {
-		return uri;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setUri(String uri) {
-		this.uri = uri;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
-	public Command withUri(String uri) {
-		this.uri = uri;
+	public CommandResponse withStatus(String status) {
+		this.status = status;
 		return this;
 	}
 
@@ -104,20 +121,20 @@ public class Command implements Serializable {
 		this.type = type;
 	}
 
-	public Command withType(CommandType type) {
+	public CommandResponse withType(CommandType type) {
 		this.type = type;
 		return this;
 	}
 
-	public Resource getResource() {
+	public ReponseResource getResource() {
 		return resource;
 	}
 
-	public void setResource(Resource resource) {
+	public void setResource(ReponseResource resource) {
 		this.resource = resource;
 	}
 
-	public Command withResource(Resource resource) {
+	public CommandResponse withResource(ReponseResource resource) {
 		this.resource = resource;
 		return this;
 	}
@@ -130,16 +147,16 @@ public class Command implements Serializable {
 		this.additionalProperties.put(name, value);
 	}
 
-	public Command withAdditionalProperty(String name, Object value) {
+	public CommandResponse withAdditionalProperty(String name, Object value) {
 		this.additionalProperties.put(name, value);
 		return this;
 	}
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("id", id).append("to", to).append("method", method).append("uri", uri)
-				.append("type", type).append("resource", resource).append("additionalProperties", additionalProperties)
-				.toString();
+		return new ToStringBuilder(this).append("id", id).append("from", from).append("to", to).append("method", method)
+				.append("status", status).append("type", type).append("resource", resource)
+				.append("additionalProperties", additionalProperties).toString();
 	}
 
 }
