@@ -11,18 +11,10 @@ public class ListContent implements Serializable {
 	private List<Item> items = new ArrayList<Item>();
 	private final static long serialVersionUID = 5241493783781707094L;
 
-	/**
-	 * No args constructor for use in serialization
-	 * 
-	 */
+
 	public ListContent() {
 	}
 
-	/**
-	 * 
-	 * @param items
-	 * @param header
-	 */
 	public ListContent(Header header, List<Item> items) {
 		super();
 		this.header = header;

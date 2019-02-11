@@ -1,41 +1,30 @@
 package ai.blip.httpintegration.models.messages;
-
 import org.apache.commons.lang.builder.ToStringBuilder;
-
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 import ai.blip.httpintegration.enums.MessageType;
 
-@JsonDeserialize(as = SelectContentMessage.class)
-public class SelectContentMessage extends Message {
+@JsonDeserialize(as = ChatstateContentMessage.class)
+public class ChatstateContentMessage extends Message {
+	private ChatstateContent content;
+	private final static long serialVersionUID = 876092919667906573L;
 
-	private SelectContent content;
-	private final static long serialVersionUID = 875092919667906573L;
-
-	public SelectContentMessage() {
+	public ChatstateContentMessage() {
 	}
 
-	/**
-	 * 
-	 * @param content
-	 * @param to
-	 * @param id
-	 * @param type
-	 */
-	public SelectContentMessage(String id, MessageType type, String to, SelectContent content) {
+	public ChatstateContentMessage(String id, MessageType type, String to, ChatstateContent content) {
 		super(id, type, to);
 		this.content = content;
 	}
 
-	public SelectContent getContent() {
+	public ChatstateContent getContent() {
 		return content;
 	}
 
-	public void setContent(SelectContent content) {
+	public void setContent(ChatstateContent content) {
 		this.content = content;
 	}
 
-	public SelectContentMessage withContent(SelectContent content) {
+	public ChatstateContentMessage withContent(ChatstateContent content) {
 		this.content = content;
 		return this;
 	}

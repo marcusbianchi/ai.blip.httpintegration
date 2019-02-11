@@ -1,8 +1,6 @@
 package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class MediaLinkContent implements Serializable {
@@ -15,27 +13,11 @@ public class MediaLinkContent implements Serializable {
 	private int size;
 	private String previewUri;
 	private String previewType;
-	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = 6295238884374638236L;
 
-	/**
-	 * No args constructor for use in serialization
-	 * 
-	 */
 	public MediaLinkContent() {
 	}
 
-	/**
-	 * 
-	 * @param text
-	 * @param title
-	 * @param previewType
-	 * @param aspectRatio
-	 * @param previewUri
-	 * @param type
-	 * @param uri
-	 * @param size
-	 */
 	public MediaLinkContent(String title, String text, String type, String uri, String aspectRatio, int size,
 			String previewUri, String previewType) {
 		super();
@@ -153,25 +135,11 @@ public class MediaLinkContent implements Serializable {
 		return this;
 	}
 
-	public Map<String, String> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
-
-	public void setAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-	}
-
-	public MediaLinkContent withAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-		return this;
-	}
-
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("title", title).append("text", text).append("type", type)
 				.append("uri", uri).append("aspectRatio", aspectRatio).append("size", size)
-				.append("previewUri", previewUri).append("previewType", previewType)
-				.append("additionalProperties", additionalProperties).toString();
+				.append("previewUri", previewUri).append("previewType", previewType).toString();
 	}
 
 }

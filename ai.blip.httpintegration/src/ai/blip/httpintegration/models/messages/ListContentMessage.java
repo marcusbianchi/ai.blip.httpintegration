@@ -13,13 +13,7 @@ public class ListContentMessage extends Message{
 	public ListContentMessage() {
 	}
 
-	/**
-	 * 
-	 * @param content
-	 * @param to
-	 * @param id
-	 * @param type
-	 */
+
 	public ListContentMessage(String id, MessageType type, String to, ListContent content) {
 		super(id, type, to);
 		this.content = content;
@@ -41,7 +35,7 @@ public class ListContentMessage extends Message{
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("id", super.id).append("type",  super.type).append("to",  super.to)
-				.append("content", content).append("additionalProperties",  super.additionalProperties).toString();
+				.append("content", content).toString();
 	}
 	
 }

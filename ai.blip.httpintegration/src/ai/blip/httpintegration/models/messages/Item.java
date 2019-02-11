@@ -9,18 +9,9 @@ public class Item implements Serializable {
 	private Value value;
 	private final static long serialVersionUID = -3183258487887786488L;
 
-	/**
-	 * No args constructor for use in serialization
-	 * 
-	 */
 	public Item() {
 	}
 
-	/**
-	 * 
-	 * @param value
-	 * @param type
-	 */
 	public Item(String type, Value value) {
 		super();
 		this.type = type;

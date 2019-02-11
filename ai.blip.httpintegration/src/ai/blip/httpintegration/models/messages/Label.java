@@ -1,29 +1,17 @@
 package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class Label implements Serializable {
 
 	private String type;
 	private Value value;
-	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = 4364383931646628478L;
 
-	/**
-	 * No args constructor for use in serialization
-	 * 
-	 */
 	public Label() {
 	}
 
-	/**
-	 * 
-	 * @param value
-	 * @param type
-	 */
 	public Label(String type, Value value) {
 		super();
 		this.type = type;
@@ -56,23 +44,9 @@ public class Label implements Serializable {
 		return this;
 	}
 
-	public Map<String, String> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
-
-	public void setAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-	}
-
-	public Label withAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-		return this;
-	}
-
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("type", type).append("value", value)
-				.append("additionalProperties", additionalProperties).toString();
+		return new ToStringBuilder(this).append("type", type).append("value", value).toString();
 	}
 
 }

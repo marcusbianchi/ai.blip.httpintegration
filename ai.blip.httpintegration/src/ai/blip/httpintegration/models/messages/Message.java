@@ -1,8 +1,6 @@
 package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
@@ -18,23 +16,13 @@ public  abstract class Message implements Serializable {
 	protected String id = UUID.randomUUID().toString();
 	protected MessageType type;
 	protected String to;
-	protected Map<String, String> additionalProperties = new HashMap<String, String>();
 	protected final static long serialVersionUID = 875082919667906573L;
 
-	/**
-	 * No args constructor for use in serialization
-	 * 
-	 */
+
 	public Message() {
 	}
 
-	/**
-	 * 
-	 * @param content
-	 * @param to
-	 * @param id
-	 * @param type
-	 */
+
 	public Message(String id, MessageType type, String to) {
 		super();
 		this.id = id;
@@ -80,25 +68,10 @@ public  abstract class Message implements Serializable {
 		this.to = to;
 		return this;
 	}
-
-
-	public Map<String, String> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
-
-	public void setAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-	}
-
-	public Message withAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-		return this;
-	}
-
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("id", id).append("type", type)
-				.append("to", to).append("additionalProperties", additionalProperties).toString();
+				.append("to", to).toString();
 	}
 	
 	

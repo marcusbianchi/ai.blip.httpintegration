@@ -1,8 +1,6 @@
 package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 import ai.blip.httpintegration.enums.MessageType;
@@ -15,22 +13,11 @@ public class Option implements Serializable {
 	private String previewText;
 	private Label label;
 	private String value;
-	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = 434566339626702052L;
 
-
-	/**
-	 * No args constructor for use in serialization
-	 * 
-	 */
 	public Option() {
 	}
 
-	/**
-	 * 
-	 * @param value
-	 * @param label
-	 */
 	public Option(Label label, String value, int index, String text, MessageType type, String previewText) {
 		super();
 		this.label = label;
@@ -101,39 +88,23 @@ public class Option implements Serializable {
 		return this;
 	}
 
-	public String getValue() {		
+	public String getValue() {
 		return value;
 	}
-	
+
 	public void setValue(String value) {
 		this.value = value;
 	}
-		
+
 	public Option withValue(String value) {
 		this.value = value;
 		return this;
 	}
 
-	public Map<String, String> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
-
-	public void setAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-	}
-
-	public Option withAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-		return this;
-	}
-
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("label", label)
-				.append("additionalProperties", additionalProperties).append("index", index)
-				.append("text", text).append("type", type)
-				.append("value", value).append("previewText", previewText)
-				.append("additionalProperties", additionalProperties).toString();
+		return new ToStringBuilder(this).append("label", label).append("index", index).append("text", text)
+				.append("type", type).append("value", value).append("previewText", previewText).toString();
 	}
 
 }

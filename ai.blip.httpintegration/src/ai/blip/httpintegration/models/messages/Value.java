@@ -1,8 +1,6 @@
 package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class Value implements Serializable {
@@ -14,26 +12,13 @@ public class Value implements Serializable {
 	private String aspectRatio;
 	private String previewUri;
 	private String target;
-
-	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = 8395517138563823665L;
 
-	/**
-	 * No args constructor for use in serialization
-	 * 
-	 */
 	public Value() {
 	}
 
-	/**
-	 * 
-	 * @param text
-	 * @param title
-	 * @param aspectRatio
-	 * @param type
-	 * @param uri
-	 */
-	public Value(String title, String text, String type, String uri, String aspectRatio, String previewUri, String target) {
+	public Value(String title, String text, String type, String uri, String aspectRatio, String previewUri,
+			String target) {
 		super();
 		this.title = title;
 		this.text = text;
@@ -116,7 +101,7 @@ public class Value implements Serializable {
 		this.uri = uri;
 		return this;
 	}
-	
+
 	public Value withTarget(String target) {
 		this.target = target;
 		return this;
@@ -135,24 +120,11 @@ public class Value implements Serializable {
 		return this;
 	}
 
-	public Map<String, String> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
-
-	public void setAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-	}
-
-	public Value withAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-		return this;
-	}
-
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("title", title).append("text", text).append("type", type)
-				.append("uri", uri).append("aspectRatio", aspectRatio).append("previewUri", previewUri).append("target", target)
-				.append("additionalProperties", additionalProperties).toString();
+				.append("uri", uri).append("aspectRatio", aspectRatio).append("previewUri", previewUri)
+				.append("target", target).toString();
 	}
 
 }

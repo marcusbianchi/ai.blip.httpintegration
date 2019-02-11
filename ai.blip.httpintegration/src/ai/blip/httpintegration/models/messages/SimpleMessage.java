@@ -7,10 +7,11 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import ai.blip.httpintegration.enums.MessageType;
 
 @JsonDeserialize(as = SimpleMessage.class)
-public class SimpleMessage  extends Message{
-	
+public class SimpleMessage extends Message {
+
 	private String content;
 	private final static long serialVersionUID = 875092919667906574L;
+
 	public SimpleMessage() {
 	}
 
@@ -25,7 +26,7 @@ public class SimpleMessage  extends Message{
 		super(id, type, to);
 		this.content = content;
 	}
-	
+
 	public String getContent() {
 		return content;
 	}
@@ -33,17 +34,16 @@ public class SimpleMessage  extends Message{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	public SimpleMessage withContent(String content) {
 		this.content = content;
 		return this;
 	}
-	
+
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("id", super.id).append("type",  super.type).append("to",  super.to)
-				.append("content", content).append("additionalProperties",  super.additionalProperties).toString();
+		return new ToStringBuilder(this).append("id", super.id).append("type", super.type).append("to", super.to)
+				.append("content", content).toString();
 	}
-	
 
 }

@@ -1,8 +1,6 @@
 package ai.blip.httpintegration.models.messages;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
 public class WebLinkContent implements Serializable {
@@ -10,22 +8,11 @@ public class WebLinkContent implements Serializable {
 	private String uri;
 	private String target;
 	private String text;
-	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = 4537027183665459057L;
 
-	/**
-	 * No args constructor for use in serialization
-	 * 
-	 */
 	public WebLinkContent() {
 	}
 
-	/**
-	 * 
-	 * @param text
-	 * @param target
-	 * @param uri
-	 */
 	public WebLinkContent(String uri, String target, String text) {
 		super();
 		this.uri = uri;
@@ -72,23 +59,9 @@ public class WebLinkContent implements Serializable {
 		return this;
 	}
 
-	public Map<String, String> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
-
-	public void setAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-	}
-
-	public WebLinkContent withAdditionalProperty(String name, String value) {
-		this.additionalProperties.put(name, value);
-		return this;
-	}
-
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("uri", uri).append("target", target).append("text", text)
-				.append("additionalProperties", additionalProperties).toString();
+		return new ToStringBuilder(this).append("uri", uri).append("target", target).append("text", text).toString();
 	}
 
 }
