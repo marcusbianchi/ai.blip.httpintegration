@@ -7,10 +7,10 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import ai.blip.httpintegration.enums.MessageType;
-import ai.blip.httpintegration.helpers.InstanceDeserializer;
+import ai.blip.httpintegration.helpers.MessageDeserializer;
 
 
-@JsonDeserialize(using = InstanceDeserializer.class)
+@JsonDeserialize(using = MessageDeserializer.class)
 public  abstract class Message implements Serializable {
 
 	protected String id = UUID.randomUUID().toString();

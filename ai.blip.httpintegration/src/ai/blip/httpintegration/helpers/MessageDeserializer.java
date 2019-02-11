@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import ai.blip.httpintegration.models.messages.*;
 
-public class InstanceDeserializer extends JsonDeserializer<Message> {
+public class MessageDeserializer extends JsonDeserializer<Message> {
 
 	@Override
 	public Message deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
