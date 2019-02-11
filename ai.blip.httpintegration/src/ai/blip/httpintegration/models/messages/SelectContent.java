@@ -10,7 +10,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 public class SelectContent implements Serializable {
 
 	private String text;
-	private String scope;
 	private List<Option> options = new ArrayList<Option>();
 	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = 8917460429094532419L;
@@ -31,7 +30,6 @@ public class SelectContent implements Serializable {
 	public SelectContent(String text, String scope, List<Option> options) {
 		super();
 		this.text = text;
-		this.scope = scope;
 		this.options = options;
 	}
 
@@ -45,19 +43,6 @@ public class SelectContent implements Serializable {
 
 	public SelectContent withText(String text) {
 		this.text = text;
-		return this;
-	}
-
-	public String getScope() {
-		return scope;
-	}
-
-	public void setScope(String scope) {
-		this.scope = scope;
-	}
-
-	public SelectContent withScope(String scope) {
-		this.scope = scope;
 		return this;
 	}
 
@@ -89,7 +74,7 @@ public class SelectContent implements Serializable {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("text", text).append("scope", scope).append("options", options)
+		return new ToStringBuilder(this).append("text", text).append("options", options)
 				.append("additionalProperties", additionalProperties).toString();
 	}
 

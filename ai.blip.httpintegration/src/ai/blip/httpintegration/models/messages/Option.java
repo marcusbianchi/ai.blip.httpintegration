@@ -14,7 +14,7 @@ public class Option implements Serializable {
 	private MessageType type;
 	private String previewText;
 	private Label label;
-	private Object value;
+	private String value;
 	private Map<String, String> additionalProperties = new HashMap<String, String>();
 	private final static long serialVersionUID = 434566339626702052L;
 
@@ -31,14 +31,13 @@ public class Option implements Serializable {
 	 * @param value
 	 * @param label
 	 */
-	public Option(Label label, Object value, int index, String text, MessageType type, String previewText) {
+	public Option(Label label, String value, int index, String text, MessageType type, String previewText) {
 		super();
 		this.label = label;
 		this.value = value;
 		this.index = index;
 		this.text = text;
 		this.type = type;
-		this.value = value;
 		this.previewText = previewText;
 	}
 
@@ -102,27 +101,14 @@ public class Option implements Serializable {
 		return this;
 	}
 
-	public Object getValueAsObject() {
+	public String getValue() {		
 		return value;
 	}
 	
-	public String getValueAsString() {
-		return value.toString();
-	}
-	
-	public void setValue(Object value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
-	
-	public void setValueAsString(String value) {
-		this.value = value;
-	}
-
-	public Option withValue(Object value) {
-		this.value = value;
-		return this;
-	}
-	
+		
 	public Option withValue(String value) {
 		this.value = value;
 		return this;

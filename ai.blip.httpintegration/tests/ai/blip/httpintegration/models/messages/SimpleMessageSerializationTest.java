@@ -21,10 +21,10 @@ class SimpleMessageSerializationTest {
 		Path currentRelativePath = Paths.get("");
 		String s = currentRelativePath.toAbsolutePath().toString();
 		String content = new String(Files.readAllBytes(Paths.get(s + "\\tests\\Resources\\SimpleMessage.json")));
-		
-		Message message = new Message().withId("1").withTo("128271320123982@messenger.gw.msging.net")
-				.withType(MessageType.PLAINT_TEXT).withContent("Welcome to our service! How can I help you?");
-		
+
+		Message message = new SimpleMessage().withContent("Welcome to our service! How can I help you?").withId("1")
+				.withTo("128271320123982@messenger.gw.msging.net").withType(MessageType.PLAINT_TEXT);
+
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(Include.NON_NULL);
 		mapper.setSerializationInclusion(Include.NON_EMPTY);
@@ -38,17 +38,17 @@ class SimpleMessageSerializationTest {
 		Path currentRelativePath = Paths.get("");
 		String s = currentRelativePath.toAbsolutePath().toString();
 		String content = new String(Files.readAllBytes(Paths.get(s + "\\tests\\Resources\\SimpleMessage.json")));
-		Message message = new Message().withId("1").withTo("128271320123982@messenger.gw.msging.net")
-				.withType(MessageType.PLAINT_TEXT).withContent("Welcome to our service! How can I help you?");
+		Message message = new SimpleMessage().withContent("Welcome to our service! How can I help you?").withId("1")
+				.withTo("128271320123982@messenger.gw.msging.net").withType(MessageType.PLAINT_TEXT);
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(Include.NON_NULL);
 		mapper.setSerializationInclusion(Include.NON_EMPTY);
-		Message deserialazedMessage= mapper.readValue(content,Message.class);
-		
-		
+		String messageContent = ((SimpleMessage)message).getContent();
+		SimpleMessage deserialazedMessage = mapper.readValue(content, SimpleMessage.class);
+		String deserialazedContent = ((SimpleMessage)message).getContent();
 		assertTrue(deserialazedMessage.getId().equals(message.getId()));
 		assertTrue(deserialazedMessage.getTo().equals(message.getTo()));
-		assertTrue(deserialazedMessage.getContent().equals(message.getContent()));
+		assertTrue(deserialazedContent.equals(messageContent));
 		assertTrue(deserialazedMessage.getType().equals(message.getType()));
 
 	}

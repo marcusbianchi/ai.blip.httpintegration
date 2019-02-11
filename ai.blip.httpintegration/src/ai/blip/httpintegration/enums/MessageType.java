@@ -1,9 +1,5 @@
 package ai.blip.httpintegration.enums;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
-
 public enum MessageType {
 	PLAINT_TEXT("text/plain"), LIST("application/vnd.lime.list+json"), CHATSTATE("application/vnd.lime.chatstate+json"),
 	WEB_LINK("application/vnd.lime.web-link+json"), DOCUMENT("application/vnd.lime.document-select+json"),
