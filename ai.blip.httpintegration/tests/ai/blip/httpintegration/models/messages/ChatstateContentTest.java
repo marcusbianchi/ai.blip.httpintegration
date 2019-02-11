@@ -45,11 +45,8 @@ public class ChatstateContentTest {
 
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.setSerializationInclusion(Include.NON_NULL);
-		mapper.setSerializationInclusion(Include.NON_EMPTY);
-		String messageString = mapper.writeValueAsString(message);
-		
+		mapper.setSerializationInclusion(Include.NON_EMPTY);		
 		ChatstateContentMessage deserialazedMessage = mapper.readValue(content, ChatstateContentMessage.class);
-
 		assertTrue(deserialazedMessage.getId().equals(message.getId()));
 		assertTrue(deserialazedMessage.getTo().equals(message.getTo()));
 		assertTrue(deserialazedMessage.getType().equals(message.getType()));

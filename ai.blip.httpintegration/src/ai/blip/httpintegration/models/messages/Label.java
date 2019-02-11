@@ -3,19 +3,23 @@ package ai.blip.httpintegration.models.messages;
 import java.io.Serializable;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
-public class Label implements Serializable {
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-	private String type;
-	private Value value;
-	private final static long serialVersionUID = 4364383931646628478L;
+import ai.blip.httpintegration.helpers.LabelDeserializer;
+
+@JsonDeserialize(using = LabelDeserializer.class)
+
+public abstract class Label implements Serializable {
+
+	protected String type;
+	protected final static long serialVersionUID = 4364383931646628478L;
 
 	public Label() {
 	}
 
-	public Label(String type, Value value) {
+	public Label(String type) {
 		super();
 		this.type = type;
-		this.value = value;
 	}
 
 	public String getType() {
@@ -31,22 +35,10 @@ public class Label implements Serializable {
 		return this;
 	}
 
-	public Value getValue() {
-		return value;
-	}
-
-	public void setValue(Value value) {
-		this.value = value;
-	}
-
-	public Label withValue(Value value) {
-		this.value = value;
-		return this;
-	}
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this).append("type", type).append("value", value).toString();
+		return new ToStringBuilder(this).append("type", type).toString();
 	}
 
 }

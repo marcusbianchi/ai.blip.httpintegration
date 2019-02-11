@@ -6,29 +6,29 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import ai.blip.httpintegration.enums.MessageType;
 
-@JsonDeserialize(as = SelectContentMessage.class)
-public class SelectContentMessage extends Message {
+@JsonDeserialize(as = WebLinkContentMessage.class)
+public class WebLinkContentMessage extends Message {
 
-	private SelectContent content;
+	private WebLinkContent content;
 	private final static long serialVersionUID = 875092919667906573L;
 
-	public SelectContentMessage() {
+	public WebLinkContentMessage() {
 	}
 
-	public SelectContentMessage(String id, MessageType type, String to, SelectContent content) {
+	public WebLinkContentMessage(String id, MessageType type, String to, WebLinkContent content) {
 		super(id, type, to);
 		this.content = content;
 	}
 
-	public SelectContent getContent() {
+	public WebLinkContent getContent() {
 		return content;
 	}
 
-	public void setContent(SelectContent content) {
+	public void setContent(WebLinkContent content) {
 		this.content = content;
 	}
 
-	public SelectContentMessage withContent(SelectContent content) {
+	public WebLinkContentMessage withContent(WebLinkContent content) {
 		this.content = content;
 		return this;
 	}

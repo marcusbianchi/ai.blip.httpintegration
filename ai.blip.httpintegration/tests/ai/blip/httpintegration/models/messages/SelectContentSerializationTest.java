@@ -24,7 +24,7 @@ public class SelectContentSerializationTest {
 		String s = currentRelativePath.toAbsolutePath().toString();
 		String content = new String(Files.readAllBytes(Paths.get(s + "\\tests\\Resources\\SelectMessage.json")));
 
-		Option option = new Option().withText("Quero saber mais").withPreviewText("Quero saber mais");
+		Option option = new SimpleOption().withText("Quero saber mais").withPreviewText("Quero saber mais");
 		List<Option> optionsList = new ArrayList<Option>();
 		optionsList.add(option);
 		SelectContent selectContent = new SelectContent().withText("Para continuar, clique abaixo")
@@ -45,7 +45,7 @@ public class SelectContentSerializationTest {
 		Path currentRelativePath = Paths.get("");
 		String s = currentRelativePath.toAbsolutePath().toString();
 		String content = new String(Files.readAllBytes(Paths.get(s + "\\tests\\Resources\\SelectMessage.json")));
-		Option option = new Option().withText("Quero saber mais").withPreviewText("Quero saber mais").withIndex(0);
+		Option option = new SimpleOption().withText("Quero saber mais").withPreviewText("Quero saber mais").withIndex(0);
 		List<Option> optionsList = new ArrayList<Option>();
 		optionsList.add(option);
 		SelectContent selectContent = new SelectContent().withText("Para continuar, clique abaixo")

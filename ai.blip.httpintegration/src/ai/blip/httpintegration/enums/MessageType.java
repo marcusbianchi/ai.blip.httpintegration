@@ -2,7 +2,7 @@ package ai.blip.httpintegration.enums;
 
 public enum MessageType {
 	PLAINT_TEXT("text/plain"), LIST("application/vnd.lime.list+json"), CHATSTATE("application/vnd.lime.chatstate+json"),
-	WEB_LINK("application/vnd.lime.web-link+json"), DOCUMENT("application/vnd.lime.document-select+json"),
+	WEB_LINK("application/vnd.lime.web-link+json"), DOCUMENT_SELECT("application/vnd.lime.document-select+json"),
 	COLLECTION("application/vnd.lime.collection+json"), SELECT("application/vnd.lime.select+json"),
 	MEDIA_LINK("application/vnd.lime.media-link+json");
 

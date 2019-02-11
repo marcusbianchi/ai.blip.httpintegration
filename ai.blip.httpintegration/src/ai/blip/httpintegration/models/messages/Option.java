@@ -3,25 +3,27 @@ package ai.blip.httpintegration.models.messages;
 import java.io.Serializable;
 import org.apache.commons.lang.builder.ToStringBuilder;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import ai.blip.httpintegration.enums.MessageType;
+import ai.blip.httpintegration.helpers.OptionDeserializer;
 
-public class Option implements Serializable {
+@JsonDeserialize(using = OptionDeserializer.class)
+public abstract class Option implements Serializable {
 
-	private int index;
-	private String text;
-	private MessageType type;
-	private String previewText;
-	private Label label;
-	private String value;
-	private final static long serialVersionUID = 434566339626702052L;
+	protected int index;
+	protected String text;
+	protected MessageType type;
+	protected String previewText;
+	protected Label label;
+	protected final static long serialVersionUID = 434566339626802052L;
 
 	public Option() {
 	}
 
-	public Option(Label label, String value, int index, String text, MessageType type, String previewText) {
+	public Option(Label label, int index, String text, MessageType type, String previewText) {
 		super();
 		this.label = label;
-		this.value = value;
 		this.index = index;
 		this.text = text;
 		this.type = type;
@@ -88,23 +90,10 @@ public class Option implements Serializable {
 		return this;
 	}
 
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	public Option withValue(String value) {
-		this.value = value;
-		return this;
-	}
-
 	@Override
 	public String toString() {
 		return new ToStringBuilder(this).append("label", label).append("index", index).append("text", text)
-				.append("type", type).append("value", value).append("previewText", previewText).toString();
+				.append("type", type).append("previewText", previewText).toString();
 	}
 
 }

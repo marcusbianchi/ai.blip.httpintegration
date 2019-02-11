@@ -30,7 +30,7 @@ public class MessageDeserializer extends JsonDeserializer<Message> {
 		case "application/vnd.lime.chatstate+json":
 			instanceClass = ChatstateContentMessage.class;
 		case "application/vnd.lime.web-link+json":
-			instanceClass = Message.class;
+			instanceClass = WebLinkContentMessage.class;
 		case "application/vnd.lime.document-select+json":
 			instanceClass = Message.class;
 		case "application/vnd.lime.collection+json":
